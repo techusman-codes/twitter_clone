@@ -1,38 +1,15 @@
-import 'package:dy2_form_app/signup.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Twitter Clone',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Twitter Clone'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class SignUp extends StatefulWidget {
+  const SignUp({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<SignUp> createState() => _SignUpState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _SignUpState extends State<SignUp> {
   final GlobalKey<FormState> _signInKey = GlobalKey();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -53,7 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
             height: 20,
           ),
           const Text(
-            'Login to X',
+            'SignUp to X',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           Container(
@@ -67,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
               keyboardType: TextInputType.emailAddress,
               controller: _emailController,
               decoration: const InputDecoration(
-                  hintText: "Enter Email",
+                  hintText: "Enter your email",
                   border: InputBorder.none,
                   contentPadding:
                       EdgeInsets.symmetric(vertical: 10, horizontal: 20)),
@@ -120,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   }
                 },
                 child: const Text(
-                  'Login',
+                  'Sign UP',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -129,13 +106,10 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           TextButton(
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const SignUp(
-                          title: '',
-                        )));
+                Navigator.of(context).pop();
               },
               child: const Text(
-                "Don't have an account? Sign Up here",
+                "Already have an account? Log in",
                 style: TextStyle(color: Colors.black),
               ))
         ],
